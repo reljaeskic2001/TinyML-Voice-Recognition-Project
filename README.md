@@ -8,6 +8,7 @@ The model recognizes spoken commands such as:
 
 - Yes
 - No
+- Noise
 
 without requiring cloud connectivity.
 
