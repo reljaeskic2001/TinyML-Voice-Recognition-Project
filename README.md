@@ -86,4 +86,5 @@ This project demonstrates experience with:
 Relja Eskic
 
 M.S. Computer Science
+
 University of Denver
