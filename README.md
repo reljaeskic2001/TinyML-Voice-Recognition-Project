@@ -81,6 +81,89 @@ This project demonstrates experience with:
 * Raspberry Pi dashboard integration
 * Enhanced model accuracy and robustness
 
+## How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/reljaeskic2001/tinyml-voice-command-recognition.git
+cd tinyml-voice-command-recognition
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Collect Audio Samples
+
+Record custom voice samples for the commands:
+
+```bash
+python save_audio.py
+```
+
+The recordings will be saved in the appropriate dataset folders.
+
+### 4. Train the Model
+
+Train the voice command recognition model:
+
+```bash
+python train.py
+```
+
+Alternatively, use the Jupyter notebook:
+
+```bash
+jupyter notebook train_model.ipynb
+```
+
+### 5. Convert the Model
+
+Convert the TensorFlow Lite model into a C array for deployment:
+
+```bash
+python tflite_to_cc.py
+```
+
+This generates the model source file used by the Arduino project.
+
+### 6. Deploy to Arduino
+
+1. Open the Arduino IDE.
+2. Open the sketch located in:
+
+```text
+arduino/inference.ino
+```
+
+3. Connect the Arduino Nano 33 BLE Sense.
+4. Select the correct board and COM port.
+5. Upload the sketch.
+
+### 7. Run Inference
+
+After uploading the sketch, open the Serial Monitor in the Arduino IDE and speak one of the supported commands:
+
+* yes
+* no
+
+The predicted command will be displayed in the Serial Monitor output.
+
+
+## Limitations
+
+This project was developed as a proof-of-concept TinyML application using a small custom dataset of approximately 45 voice recordings collected from a single speaker.
+
+While the model successfully demonstrates end-to-end audio collection, preprocessing, training, and embedded deployment, its accuracy may be limited when exposed to different speakers, accents, background noise, or recording conditions.
+
+Future improvements include collecting a larger and more diverse dataset, applying data augmentation techniques, and supporting additional voice commands to improve model robustness and generalization.
+
+
+
+
 ## Author
 
 Relja Eskic
